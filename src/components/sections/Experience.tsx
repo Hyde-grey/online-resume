@@ -15,30 +15,36 @@ type Experience = {
 
 const experiences: Experience[] = [
   {
-    company: "TraderSphere",
+    company: "Lionstride",
     location: "London, UK",
-    period: "Feb 2025 - Present",
+    position: "Founder & Founding Engineer",
+    period: "2025 - Present",
     details: [
-      "Developed modular, resizable widgets emphasizing real-time data visualization and responsive design.",
-      "Leveraged modern tools like React, TypeScript, Jest, and Storybook for robust testing practices.",
+      "Solo-built Strider (lionstride.co) — a Duolingo-style trading education platform with gamified curricula (Cub, Strider, Regal paths), live paper trading on a shared STRD symbol, and leaderboards.",
+      "Architected full-stack product on AWS Amplify Gen 2: Cognito auth, AppSync GraphQL, Lambda, DynamoDB, and S3 — with Stripe subscriptions across Free, Learn, Plus, and Pro tiers.",
+      "Shipped Aurex, a context-aware AI mentor using Amazon Bedrock and ElevenLabs voice — coaching from the learner's active lesson, chart, and draft orders rather than generic chat.",
+      "Built adaptive curriculum with rank-up gates, mistake-driven re-tests, Readiness Checks, and prop-firm-style Funded-Prep Challenges with real risk rules and drawdown limits.",
+      "Integrated TradingView and lightweight-charts for paper trading, PostHog for product analytics, and React Three Fiber for the 3D Aurex assistant experience.",
     ],
     links: {
-      demo: "https://tradersphere.netlify.app/",
-      github: "https://github.com/Hyde-grey/TraderSphere",
+      demo: "https://lionstride.co",
     },
   },
   {
-    company: "Mr.HydeStore",
+    company: "Traidar",
     location: "London, UK",
-    period: "Nov 2024 - Feb 2025",
+    position: "Co-Founder & Founding Engineer",
+    period: "Jun 2025 - Dec 2025",
     details: [
-      "Designed and developed a 3D e-commerce platform utilizing React Three Fiber and Firebase for seamless real-time inventory management.",
-      "Integrated responsive scroll-based animations with GSAP and Framer Motion, enhancing user interactivity.",
-      "Focused on custom 3D model optimization using Blender and gltfjsx.",
+      "Co-founded Traidar, an AI fintech platform helping retail traders track performance, surface market intelligence, and journal with an in-app AI co-pilot (Pip).",
+      "Architected AWS Amplify Gen 2 backend with Cognito auth, AppSync GraphQL, Lambda, and Amazon Bedrock (Claude 3 Haiku) — including AI tool-calling to a Binance market-data proxy.",
+      "Built full product prototype: asset search, Binance REST/WebSocket live prices, D3 candlestick charts, TradingView embeds, GNews market news, and sentiment visualization.",
+      "Shipped traidar.ai pre-launch experience — immersive waitlist funnel with scroll-driven emotional hook, breathing-exercise onboarding, WebGL 3D hero (React Three Fiber), and Mailchimp integration.",
+      "Developed custom WebGL shader orb (OGL/GLSL), 3D logo particle systems with ~93% GLB asset compression, and scroll-lock interaction patterns for distinctive fintech brand UX.",
     ],
     links: {
-      demo: "https://mrhydestore.netlify.app/",
-      github: "https://github.com/Hyde-grey/Mr-Hyde-Store",
+      demo: "https://traidar.ai",
+      github: "https://github.com/Hyde-grey/Traidar-Prototype",
     },
   },
   {
@@ -125,12 +131,14 @@ const Experience: FC = () => {
                   detail.includes("Fiber") ||
                   detail.includes("GSAP") ||
                   detail.includes("Motion") ||
+                  detail.includes("AWS") ||
+                  detail.includes("Bedrock") ||
                   detail.includes("Blueshift") ||
                   detail.includes("JavaScript") ? (
                     <span
                       dangerouslySetInnerHTML={{
                         __html: detail.replace(
-                          /(React|TypeScript|Jest|Storybook|React Three Fiber|Firebase|GSAP|Framer Motion|Blender|gltfjsx|Blueshift|JavaScript)/g,
+                          /(React|TypeScript|Jest|Storybook|React Three Fiber|Firebase|GSAP|Framer Motion|Blender|gltfjsx|AWS Amplify Gen 2|Amazon Bedrock|Cognito|AppSync|Lambda|DynamoDB|Stripe|PostHog|ElevenLabs|TradingView|D3|Binance|WebGL|OGL|GLSL|Mailchimp|Blueshift|JavaScript)/g,
                           '<span class="dark:text-emphasis font-medium">$1</span>'
                         ),
                       }}

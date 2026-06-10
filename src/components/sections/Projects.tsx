@@ -12,6 +12,23 @@ type Project = {
 
 const projects: Project[] = [
   {
+    title: "Strider by Lionstride",
+    description:
+      "Duolingo-style trading education platform with gamified curricula, live paper trading, prop-firm-style challenges, and Aurex — a context-aware AI mentor powered by Amazon Bedrock and ElevenLabs voice. Built solo on AWS Amplify with Stripe subscriptions.",
+    links: {
+      demo: "https://lionstride.co",
+    },
+  },
+  {
+    title: "Traidar",
+    description:
+      "AI trading companion for retail traders — portfolio insights, market intelligence, AI-guided journaling, and Pip AI co-pilot. Full-stack prototype with AWS Bedrock, Binance live data, D3 charts, and an immersive 3D pre-launch site.",
+    links: {
+      demo: "https://traidar.ai",
+      github: "https://github.com/Hyde-grey/Traidar-Prototype",
+    },
+  },
+  {
     title: "Mr.HydeStore",
     description:
       "Built with React, TypeScript, React Three Fiber, GSAP, and Framer Motion, this immersive e-commerce platform features custom 3D model animations, cinematic camera transitions, responsive design, and interactive elements.",
@@ -66,11 +83,12 @@ const Projects: FC = () => {
                 )}
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">
-                {project.description.includes("React") ? (
+                {project.description.includes("React") ||
+                project.description.includes("AWS") ? (
                   <span
                     dangerouslySetInnerHTML={{
                       __html: project.description.replace(
-                        /(React|TypeScript|React Three Fiber|GSAP|Framer Motion|Shadcn UI)/g,
+                        /(React|TypeScript|React Three Fiber|AWS Amplify|Amazon Bedrock|ElevenLabs|Stripe|D3|GSAP|Framer Motion|Shadcn UI)/g,
                         '<span class="dark:text-emphasis font-medium">$1</span>'
                       ),
                     }}

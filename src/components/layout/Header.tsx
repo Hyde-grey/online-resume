@@ -9,10 +9,10 @@ const Header: FC = () => {
             <span className="dark:cyber-glow">Hyde Francois Khamsing</span>
           </h1>
           <h2 className="text-xl text-secondary mt-1 dark:text-cyber-teal dark:font-tech dark:tracking-wide">
-            Frontend Developer
+            Founder & Founding Engineer
           </h2>
           <h3 className="text-sm text-gray-600 dark:text-cyber-teal/80 mt-1 font-medium">
-            React | TypeScript | Three.js
+            React | TypeScript | AWS | AI
           </h3>
         </div>
 
