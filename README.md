@@ -105,6 +105,10 @@ A modern, responsive resume application with light and dark modes (featuring a c
 
 This resume is designed to showcase frontend development skills while providing a professional overview of work experience, education, and projects. The interactive elements and theme switching demonstrate technical abilities beyond what a traditional PDF resume could convey.
 
+## Live Site
+
+- Resume: https://hyde-francois-khamsing-cv.netlify.app
+
 ## GitHub Links
 
 - Personal GitHub: https://github.com/Hyde-grey
