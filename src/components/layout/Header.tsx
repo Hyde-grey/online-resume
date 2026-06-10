@@ -22,17 +22,19 @@ const Header: FC = () => {
             <span className="hidden dark:inline-block dark:text-xs dark:text-cyber-cyan">
               [LOCATION]
             </span>
-            <span className="font-medium">Canary Wharf, London, E14 9RZ</span>
+            <span className="font-medium">
+              Str. Galofitei nr10, Oltenita, 915400
+            </span>
           </p>
           <p className="dark:flex dark:items-center dark:justify-end dark:space-x-2 mb-1">
             <span className="hidden dark:inline-block dark:text-xs dark:text-cyber-cyan">
               [CONTACT]
             </span>
             <a
-              href="tel:07417386185"
+              href="tel:+40773597457"
               className="text-primary font-medium hover:text-primary hover:underline dark:text-cyber-cyan dark:hover:text-cyber-cyan dark:transition-colors dark:duration-300"
             >
-              07 417 38 61 85
+              +40 773 597457
             </a>
           </p>
           <p className="dark:flex dark:items-center dark:justify-end dark:space-x-2 mb-1">
