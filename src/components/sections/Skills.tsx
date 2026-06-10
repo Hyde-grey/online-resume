@@ -63,7 +63,7 @@ const Skills: FC = () => {
   return (
     <Section title="Skills">
       <div className="section-card dark:cyber-card p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-y-4 gap-x-8">
           {skillCategories.map((category) => (
             <div key={category.name} className="space-y-2">
               <h3 className="text-base font-bold text-primary dark:text-cyber-cyan">

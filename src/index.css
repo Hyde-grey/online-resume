@@ -149,121 +149,46 @@
   }
 }
 
-/* Print styles for PDF export */
+/* Print / PDF export — preserve on-screen styling; only hide chrome and stabilize output */
 @media print {
   @page {
     size: A4;
-    margin: 0.5cm;
+    margin: 10mm;
   }
 
-  html,
-  body {
-    @apply bg-white text-black;
-    font-size: 10pt;
-    line-height: 1.2;
+  html {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* Preserve the dark mode styling if that's what was active */
-  .dark body {
-    @apply bg-[#0d1117] text-gray-100 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .dark .section-title {
-    @apply text-[#00d8ff] !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .dark p,
-  .dark li,
-  .dark span {
-    @apply text-gray-200 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .dark .text-emphasis {
-    @apply text-[#00d8ff] !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .dark .cyber-card {
-    @apply bg-[#161b22] border border-[#1b2431] !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .resume-section {
-    @apply break-inside-avoid-page mb-3 pb-3;
-  }
-
-  .resume-section:not(:last-child) {
-    @apply border-b border-gray-200;
-  }
-
-  .section-title {
-    @apply text-base mb-2;
-  }
-
-  /* Compact heading sizes for print */
-  h1 {
-    @apply text-xl;
-  }
-
-  h2 {
-    @apply text-lg;
-  }
-
-  h3 {
-    @apply text-base;
-  }
-
-  a {
-    @apply no-underline;
-  }
-
-  /* Light mode uses current colors, dark mode preserves its colors */
-  .dark a {
-    @apply text-[#00d8ff] !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Hide these elements when printing */
+  /* Hide export/theme controls only */
   button,
-  .hidden-print {
-    @apply hidden !important;
+  .print-ui {
+    display: none !important;
   }
 
-  /* Optimize spacing for print */
-  p,
-  li {
-    @apply my-0.5;
+  /* Freeze motion so PDF matches a static snapshot of the page */
+  html.printing *,
+  html.printing *::before,
+  html.printing *::after {
+    animation: none !important;
+    transition: none !important;
   }
 
+  html.printing .dark .cyber-container::before {
+    display: none;
+  }
+
+  /* Don't clip content across pages */
+  .min-h-screen {
+    min-height: auto;
+    overflow: visible !important;
+  }
+
+  /* Keep section cards intact when possible */
+  .resume-section,
   .section-card {
-    @apply p-2 mb-2;
-  }
-
-  /* Preserve skill tags styling */
-  .dark .cyber-skill-tag span {
-    @apply border border-[#1b2431] bg-[#161b22] text-[#00d8ff] !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    padding: 1px 4px;
-  }
-
-  /* Ensure two-column layout works in print */
-  .two-column-grid {
-    @apply grid grid-cols-2 gap-2;
-  }
-
-  /* Ensure columns for lists work in print */
-  .columned-list {
-    @apply columns-2;
+    break-inside: avoid-page;
   }
 }
 

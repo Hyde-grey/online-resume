@@ -85,7 +85,7 @@ const Experience: FC = () => {
           >
             <div className="flex flex-wrap justify-between items-start mb-2">
               <div className="w-full md:w-auto">
-                <div className="flex justify-between md:block">
+                <div className="flex justify-between md:block print:block">
                   <h3 className="text-base font-bold text-primary dark:text-cyber-cyan">
                     {exp.company}
                   </h3>
@@ -124,7 +124,7 @@ const Experience: FC = () => {
               </div>
             </div>
 
-            <ul className="list-disc list-outside ml-4 space-y-1 text-gray-700 dark:text-gray-200 text-sm leading-relaxed columned-list">
+            <ul className="list-disc list-outside ml-4 space-y-1 text-gray-700 dark:text-gray-200 text-sm leading-relaxed columned-list columns-1 md:columns-2 print:columns-2">
               {exp.details.map((detail, index) => (
                 <li key={index} className="pb-1">
                   {detail.includes("React") ||

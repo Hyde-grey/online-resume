@@ -52,7 +52,7 @@ const Projects: FC = () => {
   return (
     <Section title="Projects and Links">
       <div className="section-card dark:cyber-card p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-5">
           {projects.map((project) => (
             <div key={project.title} className="space-y-2">
               <div className="flex justify-between items-start">

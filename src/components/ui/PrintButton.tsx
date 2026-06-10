@@ -1,37 +1,32 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 import { motion } from "framer-motion";
 
 export const PrintButton: FC = () => {
-  const handlePrint = () => {
-    // Try to preserve the current styling on print
-    const styleElement = document.createElement("style");
-    styleElement.textContent = `
-      @media print {
-        /* Force background and colors to print */
-        * {
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
-          color-adjust: exact !important;
-        }
-      }
-    `;
-    document.head.appendChild(styleElement);
+  const handlePrint = useCallback(() => {
+    const root = document.documentElement;
+    let cleaned = false;
 
-    // Print the page
+    const cleanup = () => {
+      if (cleaned) return;
+      cleaned = true;
+      root.classList.remove("printing");
+      window.removeEventListener("afterprint", cleanup);
+    };
+
+    root.classList.add("printing");
+    window.addEventListener("afterprint", cleanup);
+    setTimeout(cleanup, 3000);
+
     window.print();
-
-    // Clean up the style element after printing
-    setTimeout(() => {
-      document.head.removeChild(styleElement);
-    }, 1000);
-  };
+  }, []);
 
   return (
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={handlePrint}
-      className="fixed top-4 right-16 z-20 p-2 rounded bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border dark:text-cyber-cyan hover:dark:shadow-glow-sm transition-all duration-300 print:hidden"
+      className="print-ui fixed top-4 right-16 z-20 p-2 rounded bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border dark:text-cyber-cyan hover:dark:shadow-glow-sm transition-all duration-300 print:hidden"
       aria-label="Export as PDF"
+      title="Save as PDF (use Print → Save as PDF)"
     >
       <div className="relative">
         <svg

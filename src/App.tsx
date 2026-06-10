@@ -12,7 +12,7 @@ import Education from "./components/sections/Education";
 const App: FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-cyber-dark transition-colors duration-200 relative overflow-hidden">
+      <div className="min-h-screen bg-gray-50 dark:bg-cyber-dark transition-colors duration-200 relative overflow-hidden print:overflow-visible print:min-h-0">
         {/* Cyber grid overlay (only visible in dark mode) */}
         <div className="absolute inset-0 bg-cyber-grid bg-grid-sm opacity-0 dark:opacity-5 pointer-events-none z-0"></div>
 

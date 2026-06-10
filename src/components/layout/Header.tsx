@@ -3,7 +3,7 @@ import { FC } from "react";
 const Header: FC = () => {
   return (
     <header className="mb-6 dark:cyber-card dark:pb-3 p-4">
-      <div className="flex flex-wrap md:flex-nowrap justify-between items-start mb-3">
+      <div className="flex flex-wrap md:flex-nowrap print:flex-nowrap justify-between items-start mb-3">
         <div>
           <h1 className="text-3xl font-bold text-primary leading-tight dark:text-cyber-cyan dark:font-tech dark:tracking-wider">
             <span className="dark:cyber-glow">Hyde Francois Khamsing</span>

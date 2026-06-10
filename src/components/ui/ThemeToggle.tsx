@@ -9,7 +9,7 @@ export const ThemeToggle: FC = () => {
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
-      className="fixed top-4 right-4 z-20 p-2 rounded bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border dark:text-cyber-cyan hover:dark:shadow-glow-sm transition-all duration-300"
+      className="print-ui fixed top-4 right-4 z-20 p-2 rounded bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border dark:text-cyber-cyan hover:dark:shadow-glow-sm transition-all duration-300 print:hidden"
       aria-label="Toggle theme"
     >
       <div className="relative">
