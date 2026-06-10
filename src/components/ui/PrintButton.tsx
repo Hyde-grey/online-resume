@@ -1,18 +1,23 @@
 import { FC, useCallback } from "react";
 import { motion } from "framer-motion";
 
+const PDF_FILENAME = "CV_Francois_Khamsing";
+
 export const PrintButton: FC = () => {
   const handlePrint = useCallback(() => {
     const root = document.documentElement;
+    const originalTitle = document.title;
     let cleaned = false;
 
     const cleanup = () => {
       if (cleaned) return;
       cleaned = true;
+      document.title = originalTitle;
       root.classList.remove("printing");
       window.removeEventListener("afterprint", cleanup);
     };
 
+    document.title = PDF_FILENAME;
     root.classList.add("printing");
     window.addEventListener("afterprint", cleanup);
     setTimeout(cleanup, 3000);
