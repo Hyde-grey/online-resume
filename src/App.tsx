@@ -7,6 +7,7 @@ import { LanguageToggle } from "./components/ui/LanguageToggle";
 import Header from "./components/layout/Header";
 import ProfessionalSummary from "./components/sections/ProfessionalSummary";
 import Skills from "./components/sections/Skills";
+import SpokenLanguages from "./components/sections/SpokenLanguages";
 import Projects from "./components/sections/Projects";
 import Experience from "./components/sections/Experience";
 import Education from "./components/sections/Education";
@@ -37,6 +38,7 @@ const App: FC = () => {
               <div className="space-y-6 print:space-y-4">
                 <ProfessionalSummary />
                 <Skills />
+                <SpokenLanguages />
                 <Projects />
                 <Experience />
                 <Education />

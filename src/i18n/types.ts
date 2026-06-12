@@ -40,6 +40,11 @@ export type EducationEntry = {
   description?: string;
 };
 
+export type SpokenLanguageEntry = {
+  name: string;
+  level: "fluent" | "beginner";
+};
+
 export type Translations = {
   meta: {
     title: string;
@@ -65,12 +70,18 @@ export type Translations = {
   sections: {
     professionalSummary: string;
     skills: string;
+    spokenLanguages: string;
     projects: string;
     experience: string;
     education: string;
   };
   summary: SummaryPart[];
   skills: SkillCategory[];
+  spokenLanguages: SpokenLanguageEntry[];
+  levels: {
+    fluent: string;
+    beginner: string;
+  };
   projects: ProjectEntry[];
   experience: ExperienceEntry[];
   education: EducationEntry[];

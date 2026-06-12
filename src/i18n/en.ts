@@ -25,6 +25,7 @@ export const en: Translations = {
   sections: {
     professionalSummary: "Professional Summary",
     skills: "Skills",
+    spokenLanguages: "Languages",
     projects: "Projects and Links",
     experience: "Work Experience",
     education: "Education",
@@ -107,6 +108,16 @@ export const en: Translations = {
       ],
     },
   ],
+  spokenLanguages: [
+    { name: "French", level: "fluent" },
+    { name: "English", level: "fluent" },
+    { name: "Thai", level: "fluent" },
+    { name: "Romanian", level: "beginner" },
+  ],
+  levels: {
+    fluent: "Fluent",
+    beginner: "Beginner",
+  },
   projects: [
     {
       title: "Strider by Lionstride",
