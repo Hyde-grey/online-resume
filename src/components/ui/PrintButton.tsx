@@ -1,9 +1,10 @@
 import { FC, useCallback } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../../context/LanguageContext";
+import { buildPdfFilename } from "../../utils/pdfFilename";
 
 export const PrintButton: FC = () => {
-  const { t } = useLanguage();
+  const { locale, t } = useLanguage();
 
   const handlePrint = useCallback(() => {
     const root = document.documentElement;
@@ -18,13 +19,13 @@ export const PrintButton: FC = () => {
       window.removeEventListener("afterprint", cleanup);
     };
 
-    document.title = t.meta.pdfFilename;
+    document.title = buildPdfFilename(t.meta.pdfFilename, locale);
     root.classList.add("printing");
     window.addEventListener("afterprint", cleanup);
     setTimeout(cleanup, 3000);
 
     window.print();
-  }, [t.meta.pdfFilename]);
+  }, [locale, t.meta.pdfFilename]);
 
   return (
     <motion.button
