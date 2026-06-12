@@ -6,7 +6,7 @@ const TECH_TERM_PATTERN =
 export function highlightTechTerms(text: string): string {
   return text.replace(
     TECH_TERM_PATTERN,
-    '<span class="dark:text-emphasis font-medium">$1</span>'
+    '<span class="text-emphasis">$1</span>'
   );
 }
 

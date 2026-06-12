@@ -12,28 +12,26 @@ const Experience: FC = () => {
         {t.experience.map((exp) => (
           <div
             key={`${exp.company}-${exp.period}`}
-            className="section-card dark:cyber-card p-4"
+            className="surface-card p-4 md:p-5"
           >
-            <div className="flex flex-wrap justify-between items-start mb-2">
+            <div className="mb-2 flex flex-wrap items-start justify-between">
               <div className="w-full md:w-auto">
                 <div className="flex justify-between md:block print:block">
-                  <h3 className="text-base font-bold text-primary dark:text-slate-100 dark:font-display">
-                    {exp.company}
-                  </h3>
-                  <span className="text-gray-600 dark:text-sky-400/70 font-mono text-xs md:mt-0.5 md:block">
+                  <h3 className="card-title text-base">{exp.company}</h3>
+                  <span className="meta-text font-mono text-xs md:mt-0.5 md:block">
                     {exp.period}
                   </span>
                 </div>
-                <p className="text-xs font-medium text-gray-600 dark:text-slate-400 mt-0.5">
+                <p className="meta-text mt-0.5 text-xs font-medium">
                   {exp.location}
                   {exp.position && ` | ${exp.position}`}
                 </p>
                 {exp.links && (
-                  <div className="mt-2 mb-2 flex space-x-2">
+                  <div className="mb-2 mt-2 flex space-x-2">
                     {exp.links.demo && (
                       <a
                         href={exp.links.demo}
-                        className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded flex items-center hover:bg-primary/20 dark:link-chip-sm"
+                        className="link-chip-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -43,7 +41,7 @@ const Experience: FC = () => {
                     {exp.links.github && (
                       <a
                         href={exp.links.github}
-                        className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded flex items-center hover:bg-primary/20 dark:link-chip-sm"
+                        className="link-chip-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -55,7 +53,7 @@ const Experience: FC = () => {
               </div>
             </div>
 
-            <ul className="list-disc list-outside ml-4 space-y-1 text-gray-700 dark:text-gray-200 text-sm leading-relaxed columned-list columns-1 md:columns-2 print:columns-2">
+            <ul className="columned-list resume-body list-outside list-disc space-y-1 leading-relaxed md:columns-2 print:columns-2 ml-4">
               {exp.details.map((detail, index) => (
                 <li key={index} className="pb-1">
                   <HighlightedText text={detail} />

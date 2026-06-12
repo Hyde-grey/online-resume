@@ -7,19 +7,14 @@ const Skills: FC = () => {
 
   return (
     <Section title={t.sections.skills}>
-      <div className="section-card dark:cyber-card p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-y-4 gap-x-8">
+      <div className="surface-card p-4 md:p-5">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-4 md:grid-cols-2 print:grid-cols-2">
           {t.skills.map((category) => (
             <div key={category.name} className="space-y-2">
-              <h3 className="text-base font-bold text-primary dark:text-slate-100 dark:font-display">
-                {category.name}
-              </h3>
+              <h3 className="card-title text-base">{category.name}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="inline-block text-xs font-medium bg-gray-100 text-gray-800 px-3 py-1 rounded-full skill-chip"
-                  >
+                  <span key={skill} className="skill-chip">
                     {skill}
                   </span>
                 ))}

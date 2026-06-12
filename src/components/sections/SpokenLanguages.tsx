@@ -7,17 +7,12 @@ const SpokenLanguages: FC = () => {
 
   return (
     <Section title={t.sections.spokenLanguages}>
-      <div className="section-card dark:cyber-card p-4">
+      <div className="surface-card p-4 md:p-5">
         <div className="flex flex-wrap gap-3">
           {t.spokenLanguages.map((language) => (
-            <div
-              key={language.name}
-              className="inline-flex items-center gap-2 bg-gray-100 px-3 py-1.5 rounded-full dark:lang-chip"
-            >
-              <span className="text-sm font-semibold text-primary dark:text-slate-100 dark:font-display">
-                {language.name}
-              </span>
-              <span className="text-xs font-medium text-gray-600 dark:text-sky-400/80">
+            <div key={language.name} className="lang-chip">
+              <span className="card-title text-sm">{language.name}</span>
+              <span className="meta-text text-xs font-medium">
                 {t.levels[language.level]}
               </span>
             </div>

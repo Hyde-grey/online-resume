@@ -7,14 +7,11 @@ const ProfessionalSummary: FC = () => {
 
   return (
     <Section title={t.sections.professionalSummary}>
-      <div className="section-card dark:cyber-card p-4">
-        <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">
+      <div className="surface-card p-4 md:p-5">
+        <p className="resume-body leading-relaxed">
           {t.summary.map((part, index) =>
             part.emphasis ? (
-              <span
-                key={index}
-                className="dark:text-emphasis font-medium"
-              >
+              <span key={index} className="text-emphasis">
                 {part.text}
               </span>
             ) : (

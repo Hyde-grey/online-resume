@@ -31,16 +31,11 @@ export const PrintButton: FC = () => {
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={handlePrint}
-      className="print-ui fixed top-4 right-16 z-20 rounded-xl bg-gray-200 dark:chrome-btn print:hidden"
+      className="print-ui chrome-btn fixed right-16 top-4 z-20 print:hidden"
       aria-label={t.ui.exportPdf}
       title={t.ui.exportPdfTitle}
     >
-      <svg
-        className="w-6 h-6 text-gray-700 dark:text-sky-300"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"

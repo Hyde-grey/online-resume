@@ -6,12 +6,8 @@ type SectionProps = PropsWithChildren<{
 
 export const Section: FC<SectionProps> = ({ title, children }) => {
   return (
-    <section className="resume-section relative">
-      <h2 className="section-title section-heading relative flex items-center">
-        {title}
-        <span className="dark:hidden ml-4 flex-grow h-px bg-gray-200" />
-      </h2>
-
+    <section className="resume-section relative print:break-inside-avoid">
+      <h2 className="section-heading">{title}</h2>
       <div className="relative">{children}</div>
     </section>
   );
