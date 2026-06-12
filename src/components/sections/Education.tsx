@@ -11,13 +11,13 @@ const Education: FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-4">
         {t.education.map((edu) => (
           <div key={edu.school} className="section-card dark:cyber-card p-4">
-            <h3 className="text-base font-bold text-primary dark:text-cyber-cyan">
+            <h3 className="text-base font-bold text-primary dark:text-slate-100 dark:font-display">
               {edu.degree}
             </h3>
-            <p className="text-sm font-medium text-secondary dark:text-cyber-teal mt-1">
+            <p className="text-sm font-medium text-secondary dark:text-sky-400/90 mt-1">
               {edu.school}
             </p>
-            <div className="flex justify-between text-xs text-gray-600 dark:text-gray-300 mt-1 mb-2">
+            <div className="flex justify-between text-xs text-gray-600 dark:text-slate-400 mt-1 mb-2">
               {edu.location && <span>{edu.location}</span>}
               <span className="font-mono">{edu.period}</span>
             </div>

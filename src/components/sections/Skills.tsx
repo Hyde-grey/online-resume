@@ -11,14 +11,14 @@ const Skills: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-y-4 gap-x-8">
           {t.skills.map((category) => (
             <div key={category.name} className="space-y-2">
-              <h3 className="text-base font-bold text-primary dark:text-cyber-cyan">
+              <h3 className="text-base font-bold text-primary dark:text-slate-100 dark:font-display">
                 {category.name}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="inline-block text-xs font-medium bg-gray-100 text-gray-800 px-3 py-1 rounded-full dark:bg-cyber-teal/20 dark:text-cyber-teal"
+                    className="inline-block text-xs font-medium bg-gray-100 text-gray-800 px-3 py-1 rounded-full skill-chip"
                   >
                     {skill}
                   </span>

@@ -1,49 +1,87 @@
-/* Import futuristic fonts */
-@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    color-scheme: light dark;
+    accent-color: #4299e1;
+  }
+
   html {
     @apply scroll-smooth;
   }
 
+  html.dark {
+    accent-color: #38bdf8;
+  }
+
   body {
-    @apply bg-gray-50 text-gray-900;
+    @apply bg-gray-50 text-gray-900 antialiased;
   }
 
-  /* Dark mode styles */
   .dark body {
-    @apply bg-cyber-dark text-gray-100;
-    /* Use a more subtle dot pattern with better blending */
-    background-image: radial-gradient(
-      rgba(0, 230, 230, 0.02) 1px,
-      transparent 1px
-    );
-    background-size: 25px 25px;
-    background-position: 0 0;
+    @apply text-cyber-text-primary;
+    background-color: #080b12;
+    background-image:
+      radial-gradient(
+        ellipse 90% 60% at 10% -15%,
+        rgba(56, 189, 248, 0.14),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 70% 50% at 95% 5%,
+        rgba(99, 102, 241, 0.1),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 50% 110%,
+        rgba(14, 165, 233, 0.08),
+        transparent 45%
+      );
+    background-attachment: fixed;
   }
 
-  /* Custom scrollbar for dark mode */
+  .dark ::selection {
+    background: rgba(56, 189, 248, 0.28);
+    color: #f8fafc;
+  }
+
+  .dark {
+    scrollbar-color: #334155 #0c1019;
+    scrollbar-width: thin;
+  }
+
   .dark ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   .dark ::-webkit-scrollbar-track {
-    @apply bg-cyber-darker;
+    background: #0c1019;
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    @apply bg-cyber-gray-light;
-    border-radius: 4px;
+    background: #334155;
+    border-radius: 999px;
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
-    @apply bg-cyber-teal bg-opacity-50;
+    background: #475569;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -52,104 +90,182 @@
     @apply mb-4 pb-4;
   }
 
-  /* Light mode separator */
   .resume-section:not(:last-child) {
     @apply border-b border-gray-200;
   }
 
-  /* Section card for light mode - more compact */
+  .dark .resume-section:not(:last-child) {
+    @apply border-b border-white/[0.06];
+  }
+
   .section-card {
-    @apply bg-white shadow-sm rounded-md p-3 border border-gray-100 mb-3;
+    @apply bg-white shadow-sm rounded-lg p-3 border border-gray-100 mb-3;
   }
 
   .section-title {
     @apply text-xl font-bold text-primary mb-3;
   }
 
-  /* Dark mode component styles */
+  /* ── Dark: glass surfaces ── */
   .dark .section-title {
-    @apply text-cyber-cyan font-tech font-semibold tracking-wider border-b border-cyber-border pb-2 text-lg;
-    text-shadow: 0 0 10px theme("colors.cyber.glow");
+    @apply font-display text-lg font-semibold tracking-tight text-cyber-text-primary mb-4 pb-0 border-0;
+    text-shadow: none;
   }
 
   .dark .cyber-card {
-    @apply bg-cyber-darker bg-opacity-80 border border-cyber-border p-3 rounded-sm relative overflow-hidden;
-    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(3px);
+    @apply relative overflow-hidden rounded-glass border border-white/[0.08] p-4;
+    background: rgba(12, 16, 25, 0.72);
+    backdrop-filter: blur(18px) saturate(1.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.42),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
   }
 
   .dark .cyber-card::before {
     content: "";
-    @apply absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-cyber-cyan to-transparent opacity-70;
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(56, 189, 248, 0.35),
+      transparent
+    );
   }
 
   .dark .cyber-card::after {
-    content: "";
-    @apply absolute top-0 right-0 w-[1px] h-full bg-gradient-to-b from-cyber-cyan to-transparent opacity-70;
+    content: none;
   }
 
-  /* Compact text styles */
+  .dark .hero-name {
+    @apply font-display font-semibold tracking-tight;
+    background: linear-gradient(135deg, #f8fafc 0%, #bae6fd 42%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .dark .hero-role {
+    @apply font-display text-cyber-teal font-medium tracking-tight;
+    text-shadow: none;
+  }
+
+  .dark .hero-stack {
+    @apply text-cyber-text-secondary font-medium;
+  }
+
+  .dark .section-heading {
+    @apply relative pl-4 font-display;
+  }
+
+  .dark .section-heading::before {
+    content: "";
+    @apply absolute left-0 top-1 bottom-1 w-0.5 rounded-full bg-gradient-to-b from-cyber-teal to-cyber-blue;
+  }
+
+  .dark .label-tag {
+    @apply font-tech text-[10px] uppercase tracking-widest text-cyber-muted;
+  }
+
+  .dark .chrome-panel {
+    @apply rounded-xl border border-white/10 overflow-hidden;
+    background: rgba(12, 16, 25, 0.82);
+    backdrop-filter: blur(14px) saturate(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .dark .chrome-btn {
+    @apply p-2 rounded-xl border border-white/10 text-cyber-teal transition-all duration-200;
+    background: rgba(12, 16, 25, 0.82);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+
+  .dark .chrome-btn:hover {
+    @apply border-cyber-border-strong bg-cyber-gray/40;
+    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.12);
+  }
+
+  .dark .skill-chip {
+    @apply inline-block text-xs font-medium px-3 py-1 rounded-full;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.16);
+    color: #7dd3fc;
+  }
+
+  .dark .skill-chip:hover {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.28);
+  }
+
+  .dark .lang-chip {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .dark .link-chip {
+    @apply text-xs font-medium px-3 py-1 rounded-lg transition-colors duration-200;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    color: #7dd3fc;
+  }
+
+  .dark .link-chip:hover {
+    background: rgba(56, 189, 248, 0.18);
+    border-color: rgba(56, 189, 248, 0.32);
+  }
+
+  .dark .link-chip-sm {
+    @apply text-xs font-medium px-2 py-0.5 rounded-md transition-colors duration-200;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    color: #7dd3fc;
+  }
+
+  .dark .link-chip-sm:hover {
+    background: rgba(56, 189, 248, 0.18);
+  }
+
   p,
   li {
-    @apply text-sm leading-snug;
+    @apply text-sm leading-relaxed;
   }
 
-  /* Improve text visibility in dark mode */
   .dark p,
   .dark li,
-  .dark span:not(.text-cyber-cyan):not(.text-cyber-teal) {
-    @apply text-gray-200;
+  .dark span:not(.text-cyber-cyan):not(.text-cyber-teal):not(.hero-name):not(
+      .hero-role
+    ) {
+    @apply text-slate-300;
   }
 
   .dark .text-emphasis {
-    @apply text-cyber-cyan;
-    text-shadow: 0 0 5px theme("colors.cyber.glow");
+    @apply text-sky-300 font-medium;
+    text-shadow: none;
   }
 
   .dark a {
-    @apply text-cyber-cyan hover:text-cyber-blue transition-colors duration-300;
-    text-shadow: 0 0 5px rgba(0, 230, 230, 0.3);
+    @apply text-sky-300 hover:text-sky-200 transition-colors duration-200;
+    text-shadow: none;
   }
 
-  .dark .cyber-btn {
-    @apply px-4 py-2 bg-cyber-darker border border-cyber-border text-cyber-cyan relative 
-    hover:bg-cyber-gray transition-all duration-300 hover:shadow-glow-sm;
-  }
-
-  .dark .cyber-btn::before {
-    content: "";
-    @apply absolute top-0 left-0 w-0 h-[1px] bg-cyber-cyan transition-all duration-500;
-  }
-
-  .dark .cyber-btn:hover::before {
-    @apply w-full;
-  }
-
-  .dark .cyber-badge {
-    @apply bg-cyber-darker border border-cyber-teal px-2 py-0.5 text-xs rounded-sm text-cyber-cyan font-tech;
-  }
-
-  /* Compact Cyber skill tags */
-  .dark .cyber-skill-tag {
-    @apply mb-1 mr-1 inline-block transition-all duration-300 hover:shadow-glow-sm;
+  .dark h3.text-primary {
+    @apply text-slate-100;
   }
 
   .skill-tag {
     @apply text-xs py-1 px-2 bg-gray-100 rounded-md text-gray-800 inline-block hover:bg-gray-200 transition-colors;
   }
 
-  /* Compact two-column layout */
   .two-column-grid {
     @apply grid grid-cols-1 md:grid-cols-2 gap-4;
   }
 
-  /* Add columns for lists when possible */
   .columned-list {
     @apply columns-1 md:columns-2;
   }
 }
 
-/* Print / PDF export — preserve on-screen styling; only hide chrome and stabilize output */
 @media print {
   @page {
     size: A4;
@@ -161,13 +277,11 @@
     print-color-adjust: exact !important;
   }
 
-  /* Hide export/theme controls only */
   button,
   .print-ui {
     display: none !important;
   }
 
-  /* Freeze motion so PDF matches a static snapshot of the page */
   html.printing *,
   html.printing *::before,
   html.printing *::after {
@@ -175,75 +289,13 @@
     transition: none !important;
   }
 
-  html.printing .dark .cyber-container::before {
-    display: none;
-  }
-
-  /* Don't clip content across pages */
   .min-h-screen {
     min-height: auto;
     overflow: visible !important;
   }
 
-  /* Keep section cards intact when possible */
   .resume-section,
   .section-card {
     break-inside: avoid-page;
   }
-}
-
-/* Animations */
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.8;
-    filter: blur(1px);
-  }
-  50% {
-    opacity: 1;
-    filter: blur(1.5px);
-  }
-}
-
-@keyframes flicker {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-@keyframes scan-line {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-}
-
-.cyber-glow {
-  animation: pulse-glow 2s infinite;
-}
-
-.cyber-flicker {
-  animation: flicker 0.5s infinite;
-}
-
-/* Improved scan line effect */
-.dark .cyber-container::before {
-  content: "";
-  @apply absolute top-0 left-0 w-full h-full pointer-events-none;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 230, 230, 0.01) 0%,
-    transparent 100%
-  );
-  animation: scan-line 15s linear infinite;
-  z-index: 1;
-  opacity: 0.4;
 }

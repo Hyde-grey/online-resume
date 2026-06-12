@@ -17,14 +17,14 @@ const Experience: FC = () => {
             <div className="flex flex-wrap justify-between items-start mb-2">
               <div className="w-full md:w-auto">
                 <div className="flex justify-between md:block print:block">
-                  <h3 className="text-base font-bold text-primary dark:text-cyber-cyan">
+                  <h3 className="text-base font-bold text-primary dark:text-slate-100 dark:font-display">
                     {exp.company}
                   </h3>
-                  <span className="text-gray-600 dark:text-cyber-teal font-mono text-xs md:mt-0.5 md:block">
+                  <span className="text-gray-600 dark:text-sky-400/70 font-mono text-xs md:mt-0.5 md:block">
                     {exp.period}
                   </span>
                 </div>
-                <p className="text-xs font-medium text-gray-600 dark:text-gray-300 mt-0.5">
+                <p className="text-xs font-medium text-gray-600 dark:text-slate-400 mt-0.5">
                   {exp.location}
                   {exp.position && ` | ${exp.position}`}
                 </p>
@@ -33,7 +33,7 @@ const Experience: FC = () => {
                     {exp.links.demo && (
                       <a
                         href={exp.links.demo}
-                        className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded flex items-center hover:bg-primary/20 dark:bg-cyber-teal/20 dark:text-cyber-teal dark:hover:bg-cyber-teal/30 transition-colors duration-300"
+                        className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded flex items-center hover:bg-primary/20 dark:link-chip-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -43,7 +43,7 @@ const Experience: FC = () => {
                     {exp.links.github && (
                       <a
                         href={exp.links.github}
-                        className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded flex items-center hover:bg-primary/20 dark:bg-cyber-teal/20 dark:text-cyber-teal dark:hover:bg-cyber-teal/30 transition-colors duration-300"
+                        className="text-xs font-medium bg-primary/10 text-primary px-2 py-0.5 rounded flex items-center hover:bg-primary/20 dark:link-chip-sm"
                         target="_blank"
                         rel="noopener noreferrer"
                       >

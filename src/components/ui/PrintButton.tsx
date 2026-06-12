@@ -31,26 +31,24 @@ export const PrintButton: FC = () => {
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={handlePrint}
-      className="print-ui fixed top-4 right-16 z-20 p-2 rounded bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border dark:text-cyber-cyan hover:dark:shadow-glow-sm transition-all duration-300 print:hidden"
+      className="print-ui fixed top-4 right-16 z-20 rounded-xl bg-gray-200 dark:chrome-btn print:hidden"
       aria-label={t.ui.exportPdf}
       title={t.ui.exportPdfTitle}
     >
-      <div className="relative">
-        <svg
-          className="w-6 h-6 dark:text-cyber-cyan"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
-          />
-        </svg>
-        <span className="sr-only">{t.ui.exportPdfSrOnly}</span>
-      </div>
+      <svg
+        className="w-6 h-6 text-gray-700 dark:text-sky-300"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"
+        />
+      </svg>
+      <span className="sr-only">{t.ui.exportPdfSrOnly}</span>
     </motion.button>
   );
 };

@@ -5,58 +5,60 @@ const Header: FC = () => {
   const { t } = useLanguage();
 
   return (
-    <header className="mb-6 dark:cyber-card dark:pb-3 p-4">
-      <div className="flex flex-wrap md:flex-nowrap print:flex-nowrap justify-between items-start mb-3">
+    <header className="mb-8 section-card dark:cyber-card p-5 md:p-6">
+      <div className="flex flex-wrap md:flex-nowrap print:flex-nowrap justify-between items-start gap-6">
         <div>
-          <h1 className="text-3xl font-bold text-primary leading-tight dark:text-cyber-cyan dark:font-tech dark:tracking-wider">
-            <span className="dark:cyber-glow">{t.header.name}</span>
+          <h1 className="text-3xl md:text-4xl font-bold text-primary leading-tight dark:hero-name">
+            {t.header.name}
           </h1>
-          <h2 className="text-xl text-secondary mt-1 dark:text-cyber-teal dark:font-tech dark:tracking-wide">
+          <h2 className="text-xl mt-2 text-secondary dark:hero-role">
             {t.header.role}
           </h2>
-          <h3 className="text-sm text-gray-600 dark:text-cyber-teal/80 mt-1 font-medium">
+          <p className="text-sm text-gray-600 dark:hero-stack mt-2">
             {t.header.stack}
-          </h3>
+          </p>
         </div>
 
-        <div className="space-y-1 text-right pt-1 text-sm">
-          <p className="dark:flex dark:items-center dark:justify-end dark:space-x-2 mb-1">
-            <span className="hidden dark:inline-block dark:text-xs dark:text-cyber-cyan">
+        <div className="space-y-2 text-right pt-1 text-sm w-full md:w-auto">
+          <p className="dark:flex dark:items-center dark:justify-end dark:gap-2">
+            <span className="hidden dark:inline-block dark:label-tag">
               {t.header.labels.location}
             </span>
-            <span className="font-medium">{t.header.address}</span>
+            <span className="font-medium text-gray-700 dark:text-slate-200">
+              {t.header.address}
+            </span>
           </p>
-          <p className="dark:flex dark:items-center dark:justify-end dark:space-x-2 mb-1">
-            <span className="hidden dark:inline-block dark:text-xs dark:text-cyber-cyan">
+          <p className="dark:flex dark:items-center dark:justify-end dark:gap-2">
+            <span className="hidden dark:inline-block dark:label-tag">
               {t.header.labels.contact}
             </span>
             <a
               href={`tel:${t.header.phoneHref}`}
-              className="text-primary font-medium hover:text-primary hover:underline dark:text-cyber-cyan dark:hover:text-cyber-cyan dark:transition-colors dark:duration-300"
+              className="text-primary font-medium hover:underline dark:text-sky-300 dark:hover:text-sky-200 transition-colors"
             >
               {t.header.phoneDisplay}
             </a>
           </p>
-          <p className="dark:flex dark:items-center dark:justify-end dark:space-x-2 mb-1">
-            <span className="hidden dark:inline-block dark:text-xs dark:text-cyber-cyan">
+          <p className="dark:flex dark:items-center dark:justify-end dark:gap-2">
+            <span className="hidden dark:inline-block dark:label-tag">
               {t.header.labels.email}
             </span>
             <a
               href={`mailto:${t.header.email}`}
-              className="text-primary font-medium hover:text-primary hover:underline dark:text-cyber-cyan dark:hover:text-cyber-cyan dark:transition-colors dark:duration-300"
+              className="text-primary font-medium hover:underline dark:text-sky-300 dark:hover:text-sky-200 transition-colors"
             >
               {t.header.email}
             </a>
           </p>
-          <p className="dark:flex dark:items-center dark:justify-end dark:space-x-2">
-            <span className="hidden dark:inline-block dark:text-xs dark:text-cyber-cyan">
+          <p className="dark:flex dark:items-center dark:justify-end dark:gap-2 flex-wrap justify-end">
+            <span className="hidden dark:inline-block dark:label-tag w-full md:w-auto">
               {t.header.labels.profile}
             </span>
             <a
               href="https://www.linkedin.com/in/hyde-fran%C3%A7ois-khamsing/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-primary/10 text-primary font-medium px-3 py-1 rounded hover:bg-primary/20 dark:bg-cyber-cyan/20 dark:text-cyber-cyan dark:hover:bg-cyber-cyan/30 transition-colors duration-300 mr-2"
+              className="inline-flex items-center bg-primary/10 text-primary font-medium px-3 py-1 rounded-lg hover:bg-primary/20 dark:link-chip mr-2"
             >
               {t.header.linkedIn}
             </a>
@@ -64,7 +66,7 @@ const Header: FC = () => {
               href="https://github.com/Hyde-grey"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-primary/10 text-primary font-medium px-3 py-1 rounded hover:bg-primary/20 dark:bg-cyber-cyan/20 dark:text-cyber-cyan dark:hover:bg-cyber-cyan/30 transition-colors duration-300"
+              className="inline-flex items-center bg-primary/10 text-primary font-medium px-3 py-1 rounded-lg hover:bg-primary/20 dark:link-chip"
             >
               {t.header.github}
             </a>

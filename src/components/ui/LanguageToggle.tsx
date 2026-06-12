@@ -13,7 +13,7 @@ export const LanguageToggle: FC = () => {
 
   return (
     <div
-      className="print-ui fixed top-4 left-4 z-20 flex rounded overflow-hidden bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border print:hidden"
+      className="print-ui fixed top-4 left-4 z-20 flex rounded-xl overflow-hidden bg-gray-200 dark:chrome-panel print:hidden"
       role="group"
       aria-label={t.ui.selectLanguage}
     >
@@ -25,10 +25,10 @@ export const LanguageToggle: FC = () => {
           onClick={() => setLocale(option)}
           aria-label={option === "en" ? t.ui.languageEn : t.ui.languageFr}
           aria-pressed={locale === option}
-          className={`px-3 py-2 text-xs font-semibold font-tech tracking-wide transition-colors duration-300 min-w-[2.75rem] ${
+          className={`px-3.5 py-2 text-xs font-semibold font-display tracking-wide transition-all duration-200 min-w-[2.75rem] ${
             locale === option
-              ? "bg-primary text-white dark:bg-cyber-cyan dark:text-cyber-dark"
-              : "text-gray-700 dark:text-cyber-teal hover:bg-gray-300 dark:hover:bg-cyber-gray"
+              ? "bg-primary text-white dark:bg-sky-500/90 dark:text-slate-950"
+              : "text-gray-700 dark:text-slate-400 hover:bg-gray-300 dark:hover:bg-white/5"
           }`}
         >
           {localeLabels[option]}

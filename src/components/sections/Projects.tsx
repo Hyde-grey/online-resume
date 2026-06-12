@@ -13,7 +13,7 @@ const Projects: FC = () => {
           {t.projects.map((project) => (
             <div key={project.title} className="space-y-2">
               <div className="flex justify-between items-start">
-                <h3 className="text-lg font-bold text-primary dark:text-cyber-cyan">
+                <h3 className="text-lg font-bold text-primary dark:text-slate-100 dark:font-display">
                   {project.title}
                 </h3>
               </div>
@@ -21,7 +21,7 @@ const Projects: FC = () => {
                 {project.links.demo && (
                   <a
                     href={project.links.demo}
-                    className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded hover:bg-primary/20 dark:bg-cyber-teal/20 dark:text-cyber-teal dark:hover:bg-cyber-teal/30 transition-colors duration-300 flex items-center"
+                    className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-lg hover:bg-primary/20 dark:link-chip flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -31,7 +31,7 @@ const Projects: FC = () => {
                 {project.links.github && (
                   <a
                     href={project.links.github}
-                    className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded hover:bg-primary/20 dark:bg-cyber-teal/20 dark:text-cyber-teal dark:hover:bg-cyber-teal/30 transition-colors duration-300 flex items-center"
+                    className="text-xs font-medium bg-primary/10 text-primary px-3 py-1 rounded-lg hover:bg-primary/20 dark:link-chip flex items-center"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
