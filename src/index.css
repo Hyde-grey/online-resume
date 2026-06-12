@@ -285,40 +285,42 @@
     @apply text-sky-300;
   }
 
-  /* ── Floating controls ── */
+  /* ── Floating controls (shared glass structure) ── */
   .chrome-panel {
-    @apply rounded-xl overflow-hidden;
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.08);
-    backdrop-filter: blur(12px);
+    @apply rounded-xl overflow-hidden border;
+    border-color: rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(14px) saturate(1.1);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.95);
   }
 
   .dark .chrome-panel {
-    background: rgba(12, 16, 25, 0.82);
     border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(12, 16, 25, 0.82);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35),
       inset 0 1px 0 rgba(255, 255, 255, 0.06);
   }
 
   .chrome-btn {
-    @apply p-2 rounded-xl transition-all duration-200;
-    background: rgba(255, 255, 255, 0.94);
-    border: 1px solid #e2e8f0;
-    color: #1e40af;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.07);
-    backdrop-filter: blur(12px);
+    @apply border p-2 rounded-xl transition-all duration-200;
+    border-color: rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.82);
+    color: #2563eb;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.1);
   }
 
   .chrome-btn:hover {
-    background: #f8fafc;
-    border-color: #cbd5e1;
+    border-color: rgba(37, 99, 235, 0.22);
+    background: rgba(241, 245, 249, 0.85);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.12);
   }
 
   .dark .chrome-btn {
-    background: rgba(12, 16, 25, 0.82);
+    @apply text-cyber-teal;
     border-color: rgba(255, 255, 255, 0.1);
-    color: #38bdf8;
+    background: rgba(12, 16, 25, 0.82);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   }
 
@@ -329,7 +331,7 @@
   }
 
   .chrome-tab-active {
-    @apply bg-blue-800 text-white;
+    @apply bg-blue-600/90 text-white;
   }
 
   .dark .chrome-tab-active {
@@ -337,11 +339,19 @@
   }
 
   .chrome-tab-inactive {
-    @apply text-slate-600 hover:bg-slate-100;
+    @apply text-slate-500 transition-colors duration-200;
+  }
+
+  .chrome-tab-inactive:hover {
+    background: rgba(15, 23, 42, 0.05);
   }
 
   .dark .chrome-tab-inactive {
-    @apply text-slate-400 hover:bg-white/5;
+    @apply text-slate-400;
+  }
+
+  .dark .chrome-tab-inactive:hover {
+    background: rgba(255, 255, 255, 0.05);
   }
 
   /* ── Chips & links ── */
