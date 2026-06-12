@@ -16,18 +16,18 @@ const App: FC = () => {
   return (
     <LanguageProvider>
       <ThemeProvider>
-        <div className="min-h-screen bg-gray-50 dark:bg-cyber-dark transition-colors duration-300 relative overflow-hidden print:overflow-visible print:min-h-0">
+        <div className="relative min-h-screen overflow-hidden bg-resume-bg text-resume-heading transition-colors duration-300 dark:bg-cyber-dark print:min-h-0 print:overflow-visible">
           <div
-            className="absolute inset-0 pointer-events-none z-0 opacity-0 dark:opacity-100 dark:bg-cyber-grid dark:bg-grid-sm"
+            className="pointer-events-none absolute inset-0 z-0 bg-resume-grid bg-grid-sm opacity-60 dark:bg-cyber-grid dark:opacity-100"
             aria-hidden="true"
           />
 
-          <div className="cyber-container relative z-10">
+          <div className="relative z-10">
             <LanguageToggle />
             <ThemeToggle />
             <PrintButton />
 
-            <main className="container mx-auto px-4 py-8 max-w-5xl">
+            <main className="container mx-auto max-w-5xl px-4 py-8">
               <Header />
               <div className="space-y-8 print:space-y-4">
                 <ProfessionalSummary />

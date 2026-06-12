@@ -13,7 +13,7 @@ export const LanguageToggle: FC = () => {
 
   return (
     <div
-      className="print-ui fixed top-4 left-4 z-20 flex rounded-xl overflow-hidden bg-gray-200 dark:chrome-panel print:hidden"
+      className="print-ui chrome-panel fixed left-4 top-4 z-20 flex print:hidden"
       role="group"
       aria-label={t.ui.selectLanguage}
     >
@@ -25,10 +25,8 @@ export const LanguageToggle: FC = () => {
           onClick={() => setLocale(option)}
           aria-label={option === "en" ? t.ui.languageEn : t.ui.languageFr}
           aria-pressed={locale === option}
-          className={`px-3.5 py-2 text-xs font-semibold font-display tracking-wide transition-all duration-200 min-w-[2.75rem] ${
-            locale === option
-              ? "bg-primary text-white dark:bg-sky-500/90 dark:text-slate-950"
-              : "text-gray-700 dark:text-slate-400 hover:bg-gray-300 dark:hover:bg-white/5"
+          className={`min-w-[2.75rem] px-3.5 py-2 font-display text-xs font-semibold tracking-wide transition-all duration-200 ${
+            locale === option ? "chrome-tab-active" : "chrome-tab-inactive"
           }`}
         >
           {localeLabels[option]}

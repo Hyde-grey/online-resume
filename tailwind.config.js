@@ -8,6 +8,16 @@ export default {
         primary: "#1a365d",
         secondary: "#2d3748",
         accent: "#4299e1",
+        resume: {
+          bg: "#f4f7fb",
+          card: "#ffffff",
+          border: "#e2e8f0",
+          heading: "#0f172a",
+          body: "#334155",
+          muted: "#64748b",
+          accent: "#2563eb",
+          "accent-soft": "#eff6ff",
+        },
         cyber: {
           black: "#050508",
           dark: "#080b12",
@@ -36,15 +46,16 @@ export default {
         "glow-sm": "0 0 12px rgba(56, 189, 248, 0.12)",
         glass: "0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06)",
         "glass-sm": "0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.05)",
+        card: "0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 20px rgba(15, 23, 42, 0.04)",
       },
       borderRadius: {
         glass: "14px",
       },
       backgroundImage: {
+        "resume-grid":
+          "linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px)",
         "cyber-grid":
           "linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px)",
-        "hero-gradient":
-          "linear-gradient(135deg, #f8fafc 0%, #bae6fd 45%, #38bdf8 100%)",
       },
       backgroundSize: {
         "grid-sm": "32px 32px",
