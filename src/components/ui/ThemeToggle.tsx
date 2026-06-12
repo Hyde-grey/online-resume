@@ -1,16 +1,18 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 export const ThemeToggle: FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <motion.button
       whileTap={{ scale: 0.95 }}
       onClick={toggleTheme}
       className="print-ui fixed top-4 right-4 z-20 p-2 rounded bg-gray-200 dark:bg-cyber-darker dark:border dark:border-cyber-border dark:text-cyber-cyan hover:dark:shadow-glow-sm transition-all duration-300 print:hidden"
-      aria-label="Toggle theme"
+      aria-label={t.ui.toggleTheme}
     >
       <div className="relative">
         {theme === "light" ? (

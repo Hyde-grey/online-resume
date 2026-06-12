@@ -1,70 +1,15 @@
 import { FC } from "react";
 import { Section } from "../ui/Section";
-
-type SkillCategory = {
-  name: string;
-  skills: string[];
-};
-
-const skillCategories: SkillCategory[] = [
-  {
-    name: "Languages & Frameworks",
-    skills: [
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "HTML5",
-      "CSS3",
-      "SASS",
-      "TailwindCSS",
-    ],
-  },
-  {
-    name: "Cloud & AI",
-    skills: [
-      "AWS Amplify Gen 2",
-      "Amazon Bedrock",
-      "AWS Lambda",
-      "Cognito",
-      "AppSync",
-      "DynamoDB",
-      "Stripe",
-      "PostHog",
-    ],
-  },
-  {
-    name: "Tools & Libraries",
-    skills: [
-      "Framer Motion",
-      "React Three Fiber",
-      "D3.js",
-      "TradingView",
-      "ElevenLabs",
-      "GSAP",
-      "Vite",
-      "Git",
-    ],
-  },
-  {
-    name: "3D & Animation",
-    skills: [
-      "Three.js",
-      "Blender",
-      "WebGL",
-      "OGL / GLSL",
-      "CSS Animations",
-      "3D Modeling",
-    ],
-  },
-];
+import { useLanguage } from "../../context/LanguageContext";
 
 const Skills: FC = () => {
+  const { t } = useLanguage();
+
   return (
-    <Section title="Skills">
+    <Section title={t.sections.skills}>
       <div className="section-card dark:cyber-card p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-y-4 gap-x-8">
-          {skillCategories.map((category) => (
+          {t.skills.map((category) => (
             <div key={category.name} className="space-y-2">
               <h3 className="text-base font-bold text-primary dark:text-cyber-cyan">
                 {category.name}

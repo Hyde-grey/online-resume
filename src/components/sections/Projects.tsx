@@ -1,59 +1,16 @@
 import { FC } from "react";
 import { Section } from "../ui/Section";
-
-type Project = {
-  title: string;
-  description: string;
-  links: {
-    demo?: string;
-    github?: string;
-  };
-};
-
-const projects: Project[] = [
-  {
-    title: "Strider by Lionstride",
-    description:
-      "Duolingo-style trading education platform with gamified curricula, live paper trading, prop-firm-style challenges, and Aurex — a context-aware AI mentor powered by Amazon Bedrock and ElevenLabs voice. Built solo on AWS Amplify with Stripe subscriptions.",
-    links: {
-      demo: "https://lionstride.co",
-    },
-  },
-  {
-    title: "Traidar",
-    description:
-      "AI trading companion for retail traders — portfolio insights, market intelligence, AI-guided journaling, and Pip AI co-pilot. Full-stack prototype with AWS Bedrock, Binance live data, D3 charts, and an immersive 3D pre-launch site.",
-    links: {
-      demo: "https://traidar.ai",
-      github: "https://github.com/Hyde-grey/Traidar-Prototype",
-    },
-  },
-  {
-    title: "Mr.HydeStore",
-    description:
-      "Built with React, TypeScript, React Three Fiber, GSAP, and Framer Motion, this immersive e-commerce platform features custom 3D model animations, cinematic camera transitions, responsive design, and interactive elements.",
-    links: {
-      demo: "https://mrhydestore.netlify.app/",
-      github: "https://github.com/Hyde-grey/Mr-Hyde-Store",
-    },
-  },
-  {
-    title: "TraderSphere Dashboard",
-    description:
-      "Advanced trading dashboard emphasizing real-time data visualization using Framer Motion and Shadcn UI components.",
-    links: {
-      demo: "https://tradersphere.netlify.app/",
-      github: "https://github.com/Hyde-grey/TraderSphere",
-    },
-  },
-];
+import { useLanguage } from "../../context/LanguageContext";
+import { HighlightedText } from "../../utils/highlightTechTerms";
 
 const Projects: FC = () => {
+  const { t } = useLanguage();
+
   return (
-    <Section title="Projects and Links">
+    <Section title={t.sections.projects}>
       <div className="section-card dark:cyber-card p-4">
         <div className="grid grid-cols-1 md:grid-cols-2 print:grid-cols-2 gap-5">
-          {projects.map((project) => (
+          {t.projects.map((project) => (
             <div key={project.title} className="space-y-2">
               <div className="flex justify-between items-start">
                 <h3 className="text-lg font-bold text-primary dark:text-cyber-cyan">
@@ -68,7 +25,7 @@ const Projects: FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span className="mr-1">🔗</span> Live Demo
+                    <span className="mr-1">🔗</span> {t.ui.liveDemo}
                   </a>
                 )}
                 {project.links.github && (
@@ -78,24 +35,12 @@ const Projects: FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <span className="mr-1">💻</span> GitHub
+                    <span className="mr-1">💻</span> {t.ui.code}
                   </a>
                 )}
               </div>
               <p className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">
-                {project.description.includes("React") ||
-                project.description.includes("AWS") ? (
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: project.description.replace(
-                        /(React|TypeScript|React Three Fiber|AWS Amplify|Amazon Bedrock|ElevenLabs|Stripe|D3|GSAP|Framer Motion|Shadcn UI)/g,
-                        '<span class="dark:text-emphasis font-medium">$1</span>'
-                      ),
-                    }}
-                  />
-                ) : (
-                  project.description
-                )}
+                <HighlightedText text={project.description} />
               </p>
             </div>
           ))}
