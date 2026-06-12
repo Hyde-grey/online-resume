@@ -13,6 +13,7 @@ import {
   Locale,
   Translations,
 } from "../i18n";
+import { readLangFromUrl, writeLangToUrl } from "../utils/resumeUrlState";
 
 type LanguageContextType = {
   locale: Locale;
@@ -24,14 +25,22 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
   undefined
 );
 
+function resolveInitialLocale(): Locale {
+  const fromUrl = readLangFromUrl();
+  if (fromUrl) {
+    return fromUrl;
+  }
+
+  const saved = localStorage.getItem("locale");
+  if (saved && isLocale(saved)) {
+    return saved;
+  }
+
+  return detectDefaultLocale();
+}
+
 export const LanguageProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [locale, setLocaleState] = useState<Locale>(() => {
-    const saved = localStorage.getItem("locale");
-    if (saved && isLocale(saved)) {
-      return saved;
-    }
-    return detectDefaultLocale();
-  });
+  const [locale, setLocaleState] = useState<Locale>(resolveInitialLocale);
 
   const t = getTranslations(locale);
 
@@ -39,7 +48,20 @@ export const LanguageProvider: FC<PropsWithChildren> = ({ children }) => {
     localStorage.setItem("locale", locale);
     document.documentElement.lang = locale;
     document.title = t.meta.title;
+    writeLangToUrl(locale);
   }, [locale, t.meta.title]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const fromUrl = readLangFromUrl();
+      if (fromUrl) {
+        setLocaleState(fromUrl);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   const setLocale = (nextLocale: Locale) => {
     setLocaleState(nextLocale);
