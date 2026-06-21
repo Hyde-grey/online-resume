@@ -15,7 +15,7 @@ export const fr: Translations = {
       email: "[EMAIL]",
       profile: "[PROFIL]",
     },
-    address: "Str. Galofitei nr10, Oltenița, 915400",
+    address: "Oltenița, 915400, Roumanie",
     phoneDisplay: "+40 773 597457",
     phoneHref: "+40773597457",
     email: "francoiskhamsing@gmail.com",
