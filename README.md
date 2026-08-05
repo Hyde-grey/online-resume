@@ -1,122 +1,140 @@
-# Resume Project - Technical Specification
+# Hyde Francois Khamsing - Interactive Resume
 
-## Project Overview
+An interactive resume and portfolio built with React, TypeScript, and Vite.
 
-A modern, responsive resume application with light and dark modes (featuring a cyberpunk-inspired design in dark mode). The resume is designed to be printable on A4 pages while maintaining a clean, professional appearance with interactive elements for web viewing.
+This project turns a traditional CV into a small web application: it supports light and dark themes, English and French content, mobile-friendly layouts, and print/PDF export for a cleaner offline version of the resume.
 
-## Technical Stack
+**Live site:** https://hyde-francois-khamsing-cv.netlify.app
 
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: TailwindCSS
-- **Deployment**: Static site (Netlify-ready)
+## What this repo is
 
-## Project Structure
+This repository contains the source for Hyde Francois Khamsing's personal resume site. It is designed to do two jobs well:
 
-- `src/components/layout/` - Layout components (Header)
-- `src/components/sections/` - Resume section components (Education, Experience, etc.)
-- `src/components/ui/` - Reusable UI components
-- `src/context/` - React context providers (ThemeContext for dark/light mode)
+- present a polished, browsable online resume
+- generate a printable A4-friendly version for PDF export or sharing
 
-## Design System
+Instead of storing resume content in static markup, the app keeps most copy in translation files, which makes it easier to maintain multiple languages and reuse the same UI across versions.
 
-### Light Mode
+## Features
 
-- Clean, minimal design with subtle accents
-- Professional typography with clear hierarchy
-- Subtle separator lines between sections
-- Optimized for print with A4 formatting
+- Light and dark theme toggle
+- English and French language toggle
+- URL-synced language and theme state
+- Local persistence for user-selected theme and language
+- Print-optimized layout for resume/PDF export
+- Responsive layout for desktop, tablet, and mobile
+- Portfolio/project links embedded throughout the resume
+- Subtle motion and UI polish via Framer Motion
 
-### Dark Mode (Cyber Theme)
+## Tech stack
 
-- Cyberpunk-inspired interface with tech accents
-- Monospaced fonts and terminal-like aesthetic
-- Glowing accents and cyber-grid background
-- Corner brackets and geometric elements
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Headless UI
 
-### Color Palette
+## Getting started
 
-- **Light**:
+### Prerequisites
 
-  - Primary: Indigo/blue
-  - Text: Dark gray
-  - Background: Light gray/white
-  - Accents: Medium gray
+- Node.js 18+ recommended
+- npm
 
-- **Dark/Cyber**:
-  - Primary: Cyan (#0ff)
-  - Secondary: Teal
-  - Background: Dark blue-black
-  - Grid: Subtle blue lines
-  - Accents: Neon highlights
+### Install dependencies
 
-## Components
+```bash
+npm install
+```
 
-### Core Components
+### Start the development server
 
-- **Header**: Name, title, contact details, and links to GitHub/LinkedIn
-- **ProfessionalSummary**: Brief overview of skills and career focus
-- **Skills**: Technologies organized by category with styled tags
-- **Experience**: Work history with accomplishments and project links
-- **Education**: Educational background and certifications
-- **Projects**: Portfolio projects with links to live demos and GitHub
+```bash
+npm run dev
+```
 
-### UI Components
+### Build for production
 
-- **Section**: Generic section wrapper with theme-appropriate styling
-- **ThemeToggle**: Switch between light and dark/cyber modes
-- **PrintButton**: Controls for optimized printing
+```bash
+npm run build
+```
 
-## Special Features
+### Preview the production build
 
-- Responsive design works on all devices
-- A4 print optimization with proper margins and spacing
-- Dark/Cyber mode with comprehensive theme transformation
-- Direct links to portfolio projects (GitHub, live demos)
-- Typography optimized for both screen and print
+```bash
+npm run preview
+```
 
-## Implementation Notes
+## Available scripts
 
-### Resume Data
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server |
+| `npm run build` | Create a production build |
+| `npm run preview` | Preview the production build locally |
+| `npm run typecheck` | Run TypeScript without emitting files |
+| `npm run lint` | Lint the project with ESLint |
 
-- Experience entries include links to relevant portfolio projects
-- Skills are categorized by type (Languages & Frameworks, Tools & Libraries, etc.)
-- Project links provide direct access to live demos and source code
+## Project structure
 
-### Print Optimization
+```text
+src/
+  components/
+    layout/      # Page-level layout pieces such as the header
+    sections/    # Resume sections: summary, skills, projects, experience, education
+    ui/          # Reusable controls such as theme, language, and print buttons
+  context/       # Theme and language providers
+  i18n/          # English and French resume content and labels
+  utils/         # URL state, PDF filename helpers, text formatting helpers
+```
 
-- Carefully adjusted margins, font sizes, and spacing for A4 pages
-- Special print-specific styles using `print:` Tailwind variants
-- Multi-column layouts where appropriate to maximize space usage
+## Where to edit content
 
-### Dark Mode Implementation
+If you want to customize the resume, start here:
 
-- Complete theme transformation with dedicated dark mode styling
-- Custom cyber-themed UI elements visible only in dark mode
-- Special text and background effects for the cyberpunk aesthetic
+- `src/i18n/en.ts` - English resume content
+- `src/i18n/fr.ts` - French resume content
+- `src/components/sections/` - section rendering and layout
+- `src/components/layout/Header.tsx` - header and contact block
 
-### Responsive Design
+Most of the actual resume data lives in the translation files, including:
 
-- Mobile-first approach with responsive adjustments
-- Grid layouts that adapt to available screen space
-- Optimized typography at all viewport sizes
+- summary text
+- skills
+- spoken languages
+- projects and links
+- work experience
+- education
 
-## Project Purpose
+## Theme and language behavior
 
-This resume is designed to showcase frontend development skills while providing a professional overview of work experience, education, and projects. The interactive elements and theme switching demonstrate technical abilities beyond what a traditional PDF resume could convey.
+The app keeps language and theme in both local storage and the URL query string, so links can preserve a chosen view.
 
-## Live Site
+Examples:
 
-- Resume: https://hyde-francois-khamsing-cv.netlify.app
+- `?lang=en&theme=light`
+- `?lang=fr&theme=dark`
 
-## GitHub Links
+That makes it easy to share a specific presentation mode directly.
+
+## Print and PDF export
+
+The print button switches the page into a print-friendly state and triggers the browser print dialog. The layout is tuned for A4-style export, making it useful as both a web resume and a downloadable PDF.
+
+## Deployment
+
+The project is set up as a static Vite app and is ready to deploy to platforms like Netlify.
+
+## Related links
 
 - Personal GitHub: https://github.com/Hyde-grey
-- Project repositories:
-  - Mr.HydeStore: https://github.com/Hyde-grey/Mr-Hyde-Store
-  - TraderSphere: https://github.com/Hyde-grey/TraderSphere
-
-## Live Project Links
-
+- LinkedIn: https://www.linkedin.com/in/hyde-fran%C3%A7ois-khamsing/
+- Strider by Lionstride: https://lionstride.co
+- Traidar: https://traidar.ai
 - Mr.HydeStore: https://mrhydestore.netlify.app/
 - TraderSphere: https://tradersphere.netlify.app/
+
+## Why this project stands out
+
+This is not just a static resume page. It is a frontend portfolio piece in its own right: a bilingual, theme-aware, print-capable application that shows product thinking as well as implementation detail.
